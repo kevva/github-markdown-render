@@ -35,6 +35,8 @@ Markdown to be rendered.
 
 #### callback(err, data)
 
+Type: `function`
+
 ##### data
 
 Type: `string`
