@@ -1,6 +1,6 @@
 {
   "name": "github-markdown-render",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Render markdown using the GitHub Markdown API",
   "license": "MIT",
   "repository": "kevva/github-markdown-render",
