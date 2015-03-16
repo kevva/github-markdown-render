@@ -4,7 +4,7 @@ var got = require('got');
 
 module.exports = function (markdown, cb) {
 	if (typeof markdown !== 'string') {
-		throw new TypeError('Expected a string');
+		throw new TypeError('Markdown required');
 	}
 
 	var url = 'https://api.github.com/markdown/raw';
