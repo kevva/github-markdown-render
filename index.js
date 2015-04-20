@@ -1,22 +1,16 @@
 'use strict';
 
-var got = require('got');
+var ghGot = require('gh-got');
 
 module.exports = function (markdown, cb) {
 	if (typeof markdown !== 'string') {
 		throw new TypeError('Markdown required');
 	}
 
-	var url = 'https://api.github.com/markdown/raw';
-	var headers = {
-		Accept: 'application/vnd.github.v3+json',
-		'Content-Type': 'text/plain',
-		'User-Agent': 'https://github.com/kevva/github-markdown-render'
-	};
-
-	got.post(url, {
+	ghGot.post('markdown/raw', {
 		body: markdown,
-		headers: headers
+		headers: {'content-type': 'text/plain'},
+		json: false
 	}, function (err, data) {
 		if (err) {
 			cb(err);
