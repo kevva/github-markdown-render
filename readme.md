@@ -1,4 +1,4 @@
-# github-markdown-render [![Build Status](http://img.shields.io/travis/kevva/github-markdown-render.svg?style=flat)](https://travis-ci.org/kevva/github-markdown-render)
+# github-markdown-render [![Build Status](https://travis-ci.org/kevva/github-markdown-render.svg?branch=master)](https://travis-ci.org/kevva/github-markdown-render)
 
 > Render markdown using the GitHub Markdown API
 
