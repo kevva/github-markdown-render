@@ -17,7 +17,7 @@ var githubMarkdownRender = require('github-markdown-render');
 
 githubMarkdownRender('**foo**', function (err, data) {
 	console.log(data);
-	//=> <p><strong>foo</strong></p>
+	//=> '<p><strong>foo</strong></p>'
 });
 ```
 
