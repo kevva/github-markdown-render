@@ -20,3 +20,16 @@ module.exports = function (markdown, cb) {
 		cb(null, data);
 	});
 };
+
+module.exports.stream = function () {
+	var stream = ghGot.post('markdown/raw', {
+		json: false,
+		headers: {
+			accept: 'application/vnd.github.v3+json',
+			'content-type': 'text/plain',
+			'user-agent': 'https://github.com/sindresorhus/gh-got'
+		}
+	});
+
+	return stream;
+};
