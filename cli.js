@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 'use strict';
 
-var getStdin = require('get-stdin');
 var meow = require('meow');
 var githubMarkdownRender = require('./');
 
@@ -32,5 +31,7 @@ if (process.stdin.isTTY) {
 
 	run(cli.input[0]);
 } else {
-	getStdin(run);
+	process.stdin
+		.pipe(githubMarkdownRender.stream())
+		.pipe(process.stdout);
 }

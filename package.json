@@ -29,7 +29,6 @@
     "markdown"
   ],
   "dependencies": {
-    "get-stdin": "^4.0.1",
     "gh-got": "^1.0.2",
     "meow": "^3.1.0"
   },
