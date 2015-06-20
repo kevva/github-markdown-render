@@ -9,7 +9,7 @@ var cli = meow({
 		'Usage',
 		'  $ github-markdown-render **foo**',
 		'  $ cat readme.md | github-markdown-render'
-	].join('\n')
+	]
 });
 
 function run(str) {
