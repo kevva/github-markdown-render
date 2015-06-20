@@ -1,6 +1,4 @@
 'use strict';
-
-var fs = require('fs');
 var test = require('ava');
 var githubMarkdownRender = require('./');
 
