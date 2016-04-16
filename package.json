@@ -16,7 +16,7 @@
     "github-markdown-render": "cli.js"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "ava"
   },
   "files": [
     "cli.js",
@@ -33,6 +33,6 @@
     "meow": "^3.3.0"
   },
   "devDependencies": {
-    "ava": "^0.0.4"
+    "ava": "*"
   }
 }
