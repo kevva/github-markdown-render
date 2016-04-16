@@ -10,13 +10,13 @@
     "url": "https://github.com/kevva"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "bin": {
     "github-markdown-render": "cli.js"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "xo && ava"
   },
   "files": [
     "cli.js",
@@ -29,10 +29,11 @@
     "markdown"
   ],
   "dependencies": {
-    "gh-got": "^1.0.2",
+    "gh-got": "^4.0.0",
     "meow": "^3.3.0"
   },
   "devDependencies": {
-    "ava": "^0.0.4"
+    "ava": "*",
+    "xo": "*"
   }
 }

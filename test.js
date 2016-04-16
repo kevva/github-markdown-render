@@ -1,24 +1,18 @@
-'use strict';
-var test = require('ava');
-var githubMarkdownRender = require('./');
+import test from 'ava';
+import m from './';
 
-test(function (t) {
-	t.plan(2);
-
-	githubMarkdownRender('**foo**', function (err, data) {
-		t.assert(!err, err);
-		t.assert(data.trim() === '<p><strong>foo</strong></p>', data);
-	});
+test('promise', async t => {
+	t.true((await m('**foo**')).trim() === '<p><strong>foo</strong></p>');
 });
 
-test(function (t) {
+test.cb('stream', t => {
 	t.plan(1);
 
-	var stream = githubMarkdownRender.stream();
+	const stream = m.stream();
 
-	stream.on('data', function (data) {
-		t.assert(data.toString().trim() === '<p><strong>foo</strong></p>', data.toString());
+	stream.on('data', data => {
+		t.true(data.toString().trim() === '<p><strong>foo</strong></p>');
+		t.end();
 	});
-
 	stream.end('**foo**');
 });

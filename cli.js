@@ -1,26 +1,13 @@
 #!/usr/bin/env node
 'use strict';
-var meow = require('meow');
-var githubMarkdownRender = require('./');
+const meow = require('meow');
+const fn = require('./');
 
-var cli = meow({
-	help: [
-		'Usage',
-		'  $ github-markdown-render **foo**',
-		'  $ cat readme.md | github-markdown-render'
-	]
-});
-
-function run(str) {
-	githubMarkdownRender(str, function (err, data) {
-		if (err) {
-			console.error(err.message);
-			process.exit(1);
-		}
-
-		console.log(data);
-	});
-}
+const cli = meow(`
+	Usage
+	  $ github-markdown-render **foo**
+	  $ cat readme.md | github-markdown-render
+`);
 
 if (process.stdin.isTTY) {
 	if (!cli.input[0]) {
@@ -28,9 +15,9 @@ if (process.stdin.isTTY) {
 		process.exit(1);
 	}
 
-	run(cli.input[0]);
-} else {
-	process.stdin
-		.pipe(githubMarkdownRender.stream())
-		.pipe(process.stdout);
+	return fn(cli.input[0]).then(res => console.log(res));
 }
+
+process.stdin
+	.pipe(fn.stream())
+	.pipe(process.stdout);
