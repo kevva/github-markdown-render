@@ -13,10 +13,10 @@ $ npm install --save github-markdown-render
 ## Usage
 
 ```js
-var fs = require('fs');
-var githubMarkdownRender = require('github-markdown-render');
+const fs = require('fs');
+const githubMarkdownRender = require('github-markdown-render');
 
-githubMarkdownRender('**foo**', function (err, data) {
+githubMarkdownRender('**foo**').then(data => {
 	console.log(data);
 	//=> '<p><strong>foo</strong></p>'
 });
@@ -29,7 +29,9 @@ fs.createReadStream('readme.md')
 
 ## API
 
-### githubMarkdownRender(markdown, callback)
+### githubMarkdownRender(markdown)
+
+Returns a promise with the rendered HTML.
 
 #### markdown
 
@@ -38,16 +40,6 @@ Type: `string`
 
 Markdown to be rendered.
 
-#### callback(err, data)
-
-Type: `function`
-
-##### data
-
-Type: `string`
-
-Rendered HTML.
-
 ### githubMarkdownRender.stream()
 
 Creates a Readable/Writable stream which you can pipe markdown to.
@@ -55,7 +47,7 @@ Creates a Readable/Writable stream which you can pipe markdown to.
 
 ## CLI
 
-```sh
+```
 $ npm install --global github-markdown-render
 ```
 
