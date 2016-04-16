@@ -1,16 +1,18 @@
 import test from 'ava';
 import m from './';
 
-test('callback', t => {
-	m('**foo**', (err, data) => {
-		t.true(!err, err);
-		t.true(data.trim() === '<p><strong>foo</strong></p>', data);
-	});
+test('promise', async t => {
+	t.true((await m('**foo**')).trim() === '<p><strong>foo</strong></p>');
 });
 
-test('stream', t => {
+test.cb('stream', t => {
+	t.plan(1);
+
 	const stream = m.stream();
 
-	stream.on('data', data => t.true(data.toString().trim() === '<p><strong>foo</strong></p>', data.toString()));
+	stream.on('data', data => {
+		t.true(data.toString().trim() === '<p><strong>foo</strong></p>');
+		t.end();
+	});
 	stream.end('**foo**');
 });
