@@ -9,5 +9,5 @@ test('promise', async t => {
 test('stream', async t => {
 	const stream = m.stream();
 	stream.end('**foo**');
-	t.is((await getStream(stream)).toString().trim(), '<p><strong>foo</strong></p>');
+	t.is((await getStream(stream)).trim(), '<p><strong>foo</strong></p>');
 });

@@ -35,7 +35,7 @@ Returns a promise with the rendered HTML.
 
 #### markdown
 
-*Required*  
+*Required*<br>
 Type: `string`
 
 Markdown to be rendered.

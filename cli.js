@@ -15,7 +15,7 @@ if (!cli.input.length && process.stdin.isTTY) {
 }
 
 if (cli.input.length) {
-	githubMarkdownRender(cli.input[0]).then(res => console.log(res));
+	githubMarkdownRender(cli.input[0]).then(console.log);
 } else {
 	process.stdin
 		.pipe(githubMarkdownRender.stream())
